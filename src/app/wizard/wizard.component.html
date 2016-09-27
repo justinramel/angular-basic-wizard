@@ -1,0 +1,12 @@
+<user-form    *ngIf="step === 1" [user]='user'
+                                 [next]='handleNext'
+                                 [updateUser]='handleUpdateUser'></user-form>
+
+<address-form *ngIf="step === 2" [address]='address'
+                                 [next]='handleNext'
+                                 [prev]='handlePrev'
+                                 [updateAddress]='handleUpdateAddress'></address-form>
+
+<results      *ngIf="step === 3" [data]='getData()'
+                                 [reset]='handleReset'
+                                 [prev]='handlePrev'></results>
