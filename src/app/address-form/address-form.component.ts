@@ -17,7 +17,7 @@ export class AddressFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  save = () => {
+  onSave = () => {
     this.updateAddress(this.address);
     this.next();
   }

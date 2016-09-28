@@ -16,7 +16,7 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  save = () => {
+  onSave = () => {
     this.updateUser(this.user);
     this.next();
   }

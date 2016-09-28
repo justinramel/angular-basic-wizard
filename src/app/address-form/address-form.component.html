@@ -1,24 +1,32 @@
 <h1>Address</h1>
-<form>
+<form (ngSubmit)="onSave()" #addressForm="ngForm">
   <div class="form-group">
     <label for="line1">Line 1</label>
     <input id="line1"
            type="text"
            [(ngModel)]="address.line1"
+           #line1="ngModel"
            name="line1"
            class="form-control"
            placeholder="Joe"
-           value={{address.line1}} />
+           required />
+     <div [hidden]="line1.valid || line1.pristine" class="alert alert-danger">
+       Line 1 is required
+     </div>
   </div>
   <div class="form-group">
     <label for="postCode">Post code</label>
     <input id="postCode"
            type="text"
            [(ngModel)]="address.postCode"
+           #postCode="ngModel"
            name="postCode"
            class="form-control"
            placeholder="Bloggs"
-           value={{address.postCode}} />
+           required />
+     <div [hidden]="postCode.valid || postCode.pristine" class="alert alert-danger">
+       Post code is required
+     </div>
   </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!addressForm.form.valid">Save</button>
 </form>
-<button class="btn btn-primary" (click)="save()">Save</button>
